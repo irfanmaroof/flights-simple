@@ -10,7 +10,7 @@ print(reference_data.head())
 spark = DatabricksSession.builder \
     .getOrCreate()
 
-table = "main.dustinvannoy_dev.flights_raw"
+table = "im_catalog.im_dev.flights_raw"
 
 df = spark.read.table(table)
 

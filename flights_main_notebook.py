@@ -1,6 +1,6 @@
 # Databricks notebook source
-dbutils.widgets.text("catalog", "main")
-dbutils.widgets.text("database", "dustinvannoy_dev")
+dbutils.widgets.text("catalog", "im_catalog")
+dbutils.widgets.text("database", "im_dev")
 
 # COMMAND ----------
 
