@@ -1,6 +1,7 @@
 # Databricks notebook source
-dbutils.widgets.text("catalog", "main")
-dbutils.widgets.text("database", "dustinvannoy_dev")
+dbutils.widgets.text("catalog", "im_catalog")
+dbutils.widgets.text("database", "im_dev")
+
 
 # COMMAND ----------
 
@@ -17,14 +18,16 @@ database = dbutils.widgets.get("database")
 path = "/databricks-datasets/airlines"
 raw_table_name = f"{catalog}.{database}.flights_raw"
 
+
 print(f"Work with table {raw_table_name}")
 # def write_to_delta(df, dest_table, checkpoint_location):
 #   df.writeStream.format("delta").outputMode("append").option("checkpointLocation", checkpoint_location).toTable(dest_table)
 
-
 # COMMAND ----------
 
 # DBTITLE 1,Read raw
+print(f"Attempting to read table {raw_table_name}")
+
 df = flight_transforms.read_batch(spark, path).limit(1000)
 display(df)
 

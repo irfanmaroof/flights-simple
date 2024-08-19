@@ -10,11 +10,12 @@ include:
 
 variables:
   catalog:
-    default: "main"
+    default: "im_catalog"
   database:
-    default: "dustinvannoy_dev"
+    default: "im_dev"
   all_purpose_cluster_id:
-    default: "0326-164201-qhvj1pwh"
+    default: "0718-131529-vyafd868"
+
 
 targets:
   # The 'dev' target, used for development purposes.
@@ -26,9 +27,9 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://e2-dogfood.staging.cloud.databricks.com/
+      host: https://adb-984752964297111.11.azuredatabricks.net/
     variables:
-      all_purpose_cluster_id: "0326-164201-qhvj1pwh"
+      all_purpose_cluster_id: "0718-131529-vyafd868"
 
   test:
     # For staging deployments, we only have a single copy, so we override the
@@ -37,12 +38,13 @@ targets:
     # to a path that is not specific to the current user.
     mode: production
     workspace:
-      host: https://e2-demo-west.cloud.databricks.com/
+
+      host: https://adb-984752964297111.11.azuredatabricks.net/
       root_path: /Shared/.bundle/${bundle.target}/${bundle.name}
     run_as:
       user_name: ${workspace.current_user.userName}
     variables:
-      all_purpose_cluster_id: "0725-142209-7jvag949"
+      all_purpose_cluster_id: "0718-131529-vyafd868"
     
 
   staging:
@@ -52,12 +54,12 @@ targets:
     # to a path that is not specific to the current user.
     mode: production
     workspace:
-      host: https://e2-dogfood.staging.cloud.databricks.com/
+      host: https://adb-984752964297111.11.azuredatabricks.net/
       root_path: /Shared/.bundle/${bundle.target}/${bundle.name}
     run_as:
       user_name: ${workspace.current_user.userName}
     variables:
-      all_purpose_cluster_id: "0326-164201-qhvj1pwh"
+      all_purpose_cluster_id: "0718-131529-vyafd868"
 
   # The 'prod' target, used for production deployment.
   prod:
@@ -67,11 +69,11 @@ targets:
     # to a path that is not specific to the current user.
     mode: production
     workspace:
-      host: https://e2-dogfood.staging.cloud.databricks.com/
+      host: https://adb-984752964297111.11.azuredatabricks.net/
       root_path: /Shared/.bundle/${bundle.target}/${bundle.name}
     run_as:
       # This can run as a specific user or service principal in production.
       # To run as service principal use service_principal_name (see Databricks documentation).
       user_name: ${workspace.current_user.userName}
     variables:
-      all_purpose_cluster_id: "0326-164201-qhvj1pwh"
+      all_purpose_cluster_id: "0718-131529-vyafd868"

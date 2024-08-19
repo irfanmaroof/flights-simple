@@ -1,6 +1,7 @@
 from pyspark.sql.functions import col, lit
 
-table = "main.dustinvannoy_dev.flights_raw"
+
+table = "im_catalog.im_dev.flights_raw"
 
 df = spark.read.table(table)
 
