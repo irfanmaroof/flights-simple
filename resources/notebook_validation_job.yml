@@ -16,8 +16,8 @@ resources:
           run_job_task:
             job_id: ${resources.jobs.flights_notebook.id}
             job_parameters:
-              catalog: main
-              database: flights_test
+              catalog: im_catalog
+              database: im_dev
           max_retries: 0
           
         - task_key: validation_task
