@@ -16,6 +16,7 @@ variables:
   all_purpose_cluster_id:
     default: "0718-131529-vyafd868"
 
+
 targets:
   # The 'dev' target, used for development purposes.
   # Whenever a developer deploys using 'dev', they get their own copy.
@@ -37,6 +38,7 @@ targets:
     # to a path that is not specific to the current user.
     mode: production
     workspace:
+
       host: https://adb-984752964297111.11.azuredatabricks.net/
       root_path: /Shared/.bundle/${bundle.target}/${bundle.name}
     run_as:

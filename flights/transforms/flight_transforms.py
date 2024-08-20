@@ -5,6 +5,7 @@ from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 from pyspark.sql.functions import expr
 """Irfan Maroof 2"""
 
+
 def delay_type_transform(df):
   delay_expr = expr(
     """case when WeatherDelay != 'NA'
